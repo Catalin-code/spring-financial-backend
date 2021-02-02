@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 public class AccountConfig {
 
@@ -27,6 +29,7 @@ public class AccountConfig {
                     "RO62PORL4752952435627713",
                     0.0
             );
+            repository.saveAll(List.of(one, two));
         };
     }
 }

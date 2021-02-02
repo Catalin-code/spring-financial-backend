@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-//    @Query("SELECT a from Account a WHERE a.customer_id = ?1")
     List<Account> findByCustomer(Long id);
 
 }
