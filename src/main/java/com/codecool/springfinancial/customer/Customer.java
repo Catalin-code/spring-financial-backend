@@ -146,4 +146,20 @@ public class Customer {
         return Period.between(dob, LocalDate.now()).getYears();
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", dob=" + dob +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", idIssued=" + idIssued +
+                ", idExpiry=" + idExpiry +
+                ", gender='" + gender + '\'' +
+                ", pid='" + pid + '\'' +
+                '}';
+    }
 }
