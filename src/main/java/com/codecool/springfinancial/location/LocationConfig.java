@@ -9,7 +9,7 @@ import java.util.List;
 @Configuration
 public class LocationConfig {
     @Bean
-    CommandLineRunner commandLineRunner (LocationRepository repository) {
+    CommandLineRunner locationRunner (LocationRepository locationRepository) {
         return args -> {
             Location bucuresti = new Location(
                     "Bucuresti",
@@ -26,7 +26,7 @@ public class LocationConfig {
                     "Strada Stirbei Voda numarul 5"
             );
 
-            repository.saveAll(
+            locationRepository.saveAll(
                     List.of(bucuresti, ploiesti, calarasi)
             );
         };
