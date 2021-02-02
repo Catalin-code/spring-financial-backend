@@ -22,14 +22,14 @@ public class Account {
     private Long customer_id;
     private String type;
     private String currency;
-    private float amount;
+    private double amount;
     private String account_number;
-    private float interest;
+    private double interest;
 
     public Account() {
     }
 
-    public Account(Long id, Long customer_id, String type, String currency, float amount, String account_number, float interest) {
+    public Account(Long id, Long customer_id, String type, String currency, double amount, String account_number, double interest) {
         this.id = id;
         this.customer_id = customer_id;
         this.type = type;
@@ -39,7 +39,7 @@ public class Account {
         this.interest = interest;
     }
 
-    public Account(Long customer_id, String type, String currency, float amount, String account_number, float interest) {
+    public Account(Long customer_id, String type, String currency, double amount, String account_number, double interest) {
         this.customer_id = customer_id;
         this.type = type;
         this.currency = currency;
@@ -80,7 +80,7 @@ public class Account {
         this.currency = currency;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -96,7 +96,7 @@ public class Account {
         this.account_number = account_number;
     }
 
-    public float getInterest() {
+    public double getInterest() {
         return interest;
     }
 
