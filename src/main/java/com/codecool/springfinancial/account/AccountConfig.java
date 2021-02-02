@@ -20,7 +20,7 @@ public class AccountConfig {
             );
 
             Account two = new Account(
-                    2l,
+                    1l,
                     "Credit",
                     "EUR",
                     25000,
