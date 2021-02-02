@@ -1,32 +1,27 @@
-package com.codecool.springfinancial.customer;
-
-import org.apache.tomcat.jni.Local;
+package com.codecool.springfinancial.employee;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 
 @Entity
 @Table
-public class Customer {
+public class Employee {
     @Id
     @SequenceGenerator(
-            name = "customer_sequence",
-            sequenceName = "customer_sequence",
+            name = "employee_sequence",
+            sequenceName = "employee_sequence",
             allocationSize = 1
     )
 
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "customer_sequence"
+            generator = "employee_sequence"
     )
 
     private Long id;
     private String first_name;
     private String last_name;
     private LocalDate dob;
-    @Transient
-    private Integer age;
     private String address;
     private String email;
     private LocalDate idIssued;
@@ -34,10 +29,10 @@ public class Customer {
     private String gender;
     private String pid;
 
-    public Customer() {
+    public Employee() {
     }
 
-    public Customer(Long id, String first_name, String last_name, LocalDate dob, String address, String email, LocalDate idIssued, LocalDate idExpiry, String gender, String pid) {
+    public Employee(Long id, String first_name, String last_name, LocalDate dob, String address, String email, LocalDate idIssued, LocalDate idExpiry, String gender, String pid) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -50,7 +45,7 @@ public class Customer {
         this.pid = pid;
     }
 
-    public Customer(String first_name, String last_name, LocalDate dob, String address, String email, LocalDate idIssued, LocalDate idExpiry, String gender, String pid) {
+    public Employee(String first_name, String last_name, LocalDate dob, String address, String email, LocalDate idIssued, LocalDate idExpiry, String gender, String pid) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.dob = dob;
@@ -110,19 +105,19 @@ public class Customer {
         this.email = email;
     }
 
-    public LocalDate getId_issued() {
+    public LocalDate getIdIssued() {
         return idIssued;
     }
 
-    public void setId_issued(LocalDate idIssued) {
+    public void setIdIssued(LocalDate idIssued) {
         this.idIssued = idIssued;
     }
 
-    public LocalDate getId_expiry() {
+    public LocalDate getIdExpiry() {
         return idExpiry;
     }
 
-    public void setId_expiry(LocalDate idExpiry) {
+    public void setIdExpiry(LocalDate idExpiry) {
         this.idExpiry = idExpiry;
     }
 
@@ -142,18 +137,13 @@ public class Customer {
         this.pid = pid;
     }
 
-    public Integer getAge() {
-        return Period.between(dob, LocalDate.now()).getYears();
-    }
-
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Employee{" +
                 "id=" + id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", dob=" + dob +
-                ", age=" + age +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", idIssued=" + idIssued +
