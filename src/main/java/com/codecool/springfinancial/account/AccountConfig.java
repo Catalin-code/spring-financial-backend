@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class AccountConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(AccountRepository repository){
+    CommandLineRunner commandLineRunner2(AccountRepository repository){
         return args -> {
             Account one = new Account(
                     1l,
