@@ -2,10 +2,7 @@ package com.codecool.springfinancial.customer;
 
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -31,5 +28,10 @@ public class CustomerController {
                                               @RequestParam(required = false) String address, @RequestParam(required = false) String email, @RequestParam(required = false)LocalDate idIssued,
                                               @RequestParam(required = false) LocalDate idExpiry, @RequestParam(required = false) String gender, @RequestParam(required = false) Long id) {
         return customerService.getCustomerByPid(pid);
+    }
+
+    @PostMapping(path = "api/customer/new-customer")
+    public void addNewCustomer (@RequestBody Customer customer){
+        customerService.addNewCustomer(customer);
     }
 }
