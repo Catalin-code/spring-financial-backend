@@ -19,7 +19,7 @@ public class Account {
     )
 
     private Long id;
-    private Long customer;
+    private Long customerId;
     private String type;
     private String currency;
     private double amount;
@@ -29,9 +29,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(Long id, Long customer, String type, String currency, double amount, String account_number, double interest) {
+    public Account(Long id, Long customerId, String type, String currency, double amount, String account_number, double interest) {
         this.id = id;
-        this.customer = customer;
+        this.customerId = customerId;
         this.type = type;
         this.currency = currency;
         this.amount = amount;
@@ -39,8 +39,8 @@ public class Account {
         this.interest = interest;
     }
 
-    public Account(Long customer, String type, String currency, double amount, String account_number, double interest) {
-        this.customer = customer;
+    public Account(Long customerId, String type, String currency, double amount, String account_number, double interest) {
+        this.customerId = customerId;
         this.type = type;
         this.currency = currency;
         this.amount = amount;
@@ -56,12 +56,12 @@ public class Account {
         this.id = id;
     }
 
-    public Long getCustomer() {
-        return customer;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Long customer_id) {
-        this.customer = customer_id;
+    public void setCustomerId(Long customer_id) {
+        this.customerId = customer_id;
     }
 
     public String getType() {
@@ -108,7 +108,7 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", customer_id=" + customer +
+                ", customer_id=" + customerId +
                 ", type='" + type + '\'' +
                 ", currency='" + currency + '\'' +
                 ", amount=" + amount +
