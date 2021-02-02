@@ -1,7 +1,10 @@
 package com.codecool.springfinancial.customer;
 
+import org.apache.tomcat.jni.Local;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table
@@ -22,39 +25,39 @@ public class Customer {
     private String first_name;
     private String last_name;
     private LocalDate dob;
-    private String address;
-    private String email;
-    private LocalDate id_issued;
-    private LocalDate id_expiry;
-    private String gender;
-    private String pid;
     @Transient
     private Integer age;
+    private String address;
+    private String email;
+    private LocalDate idIssued;
+    private LocalDate idExpiry;
+    private String gender;
+    private String pid;
 
     public Customer() {
     }
 
-    public Customer(Long id, String first_name, String last_name, LocalDate dob, String address, String email, LocalDate id_issued, LocalDate id_expiry, String gender, String pid) {
+    public Customer(Long id, String first_name, String last_name, LocalDate dob, String address, String email, LocalDate idIssued, LocalDate idExpiry, String gender, String pid) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.dob = dob;
         this.address = address;
         this.email = email;
-        this.id_issued = id_issued;
-        this.id_expiry = id_expiry;
+        this.idIssued = idIssued;
+        this.idExpiry = idExpiry;
         this.gender = gender;
         this.pid = pid;
     }
 
-    public Customer(String first_name, String last_name, LocalDate dob, String address, String email, LocalDate id_issued, LocalDate id_expiry, String gender, String pid) {
+    public Customer(String first_name, String last_name, LocalDate dob, String address, String email, LocalDate idIssued, LocalDate idExpiry, String gender, String pid) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.dob = dob;
         this.address = address;
         this.email = email;
-        this.id_issued = id_issued;
-        this.id_expiry = id_expiry;
+        this.idIssued = idIssued;
+        this.idExpiry = idExpiry;
         this.gender = gender;
         this.pid = pid;
     }
@@ -108,19 +111,19 @@ public class Customer {
     }
 
     public LocalDate getId_issued() {
-        return id_issued;
+        return idIssued;
     }
 
-    public void setId_issued(LocalDate id_issued) {
-        this.id_issued = id_issued;
+    public void setId_issued(LocalDate idIssued) {
+        this.idIssued = idIssued;
     }
 
     public LocalDate getId_expiry() {
-        return id_expiry;
+        return idExpiry;
     }
 
-    public void setId_expiry(LocalDate id_expiry) {
-        this.id_expiry = id_expiry;
+    public void setId_expiry(LocalDate idExpiry) {
+        this.idExpiry = idExpiry;
     }
 
     public String getGender() {
@@ -140,7 +143,7 @@ public class Customer {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(dob, LocalDate.now()).getYears();
     }
 
 }

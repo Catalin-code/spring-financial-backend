@@ -11,7 +11,7 @@ import java.util.List;
 @Configuration
 public class CustomerConfig {
     @Bean
-    CommandLineRunner commandLineRunner(CustomerRepository repository) {
+    CommandLineRunner CustomerRunner(CustomerRepository customerRepository) {
         return args -> {
             Customer ciprian = new Customer(
                     "Draganica",
@@ -68,12 +68,12 @@ public class CustomerConfig {
                     "Bulevardul Decebal 9, București",
                     "maria03@hotmail.com",
                     LocalDate.of(2017, Month.MARCH, 15),
-                    LocalDate.of(2017, Month.MARCH, 15),
+                    LocalDate.of(2027, Month.MARCH, 15),
                     "M",
                     "6040202409271"
             );
 
-            repository.saveAll(
+            customerRepository.saveAll(
                     List.of(ciprian, andrei, catalin, gheorghe, maria)
             );
         };
