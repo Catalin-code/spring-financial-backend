@@ -22,4 +22,12 @@ public class CustomerService {
     public Optional<Customer> getCustomerByPid(String pid) {
         return customerRepository.findCustomerByPid(pid);
     }
+
+    public void addNewCustomer(Customer customer) {
+        Optional<Customer> customerOptional = customerRepository.findCustomerByPid(customer.getPid());
+        if (customerOptional.isPresent()) {
+            throw new IllegalStateException("Customer with PID already exists !");
+        }
+        customerRepository.save(customer);
+    }
 }
