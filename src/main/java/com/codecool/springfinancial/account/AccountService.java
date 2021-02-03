@@ -19,21 +19,7 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    public void deleteAccount(Long customerId){
-        accountRepository.deleteById(customerId);
-    }
-
     public List<Account> getAccountsByCustomerId(Long customerId){
         return accountRepository.findByCustomerId(customerId);
     }
-
-    public void updateAccountAmount(Long Id, double amount){
-        Account account = accountRepository.findById(Id).orElseThrow(() ->
-                new IllegalStateException("Account with id " + Id + "does not exist!"));
-        if (account.getAmount() + amount < 0) {
-            throw new IllegalStateException("Not enough funds");
-        }
-    }
-
-
 }
