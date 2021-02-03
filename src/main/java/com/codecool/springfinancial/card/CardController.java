@@ -16,7 +16,7 @@ public class CardController {
         cardService.addNewCard(card);
     }
 
-    @DeleteMapping("api/card/delete/{id}")
+    @DeleteMapping("api/card/delete/id={id}")
     public void deleteCard(@PathVariable("id")Long id){
         cardService.deleteCard(id);
     }
