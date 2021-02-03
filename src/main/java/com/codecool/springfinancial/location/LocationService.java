@@ -20,7 +20,7 @@ public class LocationService {
     public List<Location> getLocations() {
         return locationRepository.findAll();
     }
-    @Transactional
+
     public Optional<Location> getLocationById(Long id) {
         return locationRepository.findById(id);
     }
