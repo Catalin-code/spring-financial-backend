@@ -4,6 +4,9 @@ import com.codecool.springfinancial.location.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -39,5 +42,35 @@ public class CustomerService {
         }
 
         customerRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void updateCustomer(String pid, String firstName, String lastName , String address, String email, LocalDate idIssued, LocalDate idExpiry) {
+        Customer customer = customerRepository.findCustomerByPid(pid).orElseThrow(() ->
+                new IllegalStateException("Customer with pid " + pid + " does not exist !"));
+
+        if (firstName != null && firstName.length() > 0 && !Objects.equals(customer.getFirstName(), firstName)) {
+            customer.setFirstName(firstName);
+        }
+
+        if (lastName != null && lastName.length() > 0 && !Objects.equals(customer.getLastName(), lastName)) {
+            customer.setLastName(lastName);
+        }
+
+        if (address != null && address.length() > 0 && !Objects.equals(customer.getAddress(), address)) {
+            customer.setAddress(address);
+        }
+
+        if (email != null && email.length() > 0 && !Objects.equals(customer.getEmail(), email)) {
+            customer.setEmail(email);
+        }
+
+        if (idIssued != null && !Objects.equals(customer.getId_issued(), idIssued)) {
+            customer.setId_issued(idIssued);
+        }
+
+        if (idExpiry != null && !Objects.equals(customer.getId_expiry(), idExpiry)) {
+            customer.setId_expiry(idExpiry);
+        }
     }
 }

@@ -17,14 +17,14 @@ public class CustomerController {
     }
 
     @GetMapping(path = "api/customer/id={id}")
-    public Optional<Customer> getCustomerById(@PathVariable("id") Long id, @RequestParam(required = false) String first_name, @RequestParam(required = false) String last_name, @RequestParam(required = false) LocalDate dob,
+    public Optional<Customer> getCustomerById(@PathVariable("id") Long id, @RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName, @RequestParam(required = false) LocalDate dob,
                                               @RequestParam(required = false) String address, @RequestParam(required = false) String email, @RequestParam(required = false)LocalDate idIssued,
                                               @RequestParam(required = false) LocalDate idExpiry, @RequestParam(required = false) String gender, @RequestParam(required = false) String pid) {
         return customerService.getCustomerById(id);
     }
 
     @GetMapping(path = "api/customer/pid={pid}")
-    public Optional<Customer> getCustomerByPid(@PathVariable("pid") String pid, @RequestParam(required = false) String first_name, @RequestParam(required = false) String last_name, @RequestParam(required = false) LocalDate dob,
+    public Optional<Customer> getCustomerByPid(@PathVariable("pid") String pid, @RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName, @RequestParam(required = false) LocalDate dob,
                                               @RequestParam(required = false) String address, @RequestParam(required = false) String email, @RequestParam(required = false)LocalDate idIssued,
                                               @RequestParam(required = false) LocalDate idExpiry, @RequestParam(required = false) String gender, @RequestParam(required = false) Long id) {
         return customerService.getCustomerByPid(pid);
@@ -39,4 +39,17 @@ public class CustomerController {
     public void deleteCustomer(@PathVariable("id") Long id) {
         customerService.deleteCustomer(id);
     }
+
+    @PutMapping(path = "api/customer/update/pid={pid}")
+    public void updateCustomer(
+            @PathVariable("pid") String pid,
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) String address,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) LocalDate idIssued,
+            @RequestParam(required = false) LocalDate idExpiry) {
+        customerService.updateCustomer(pid, firstName, lastName, address, email, idIssued, idExpiry);
+    }
+
 }
