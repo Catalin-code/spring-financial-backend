@@ -16,7 +16,7 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "api/employee/pid={pid}")
-    public Optional<Employee> getEmployeeByPid(@PathVariable("pid") String pid, @RequestParam(required = false) String first_name, @RequestParam(required = false) String last_name,
+    public Optional<Employee> getEmployeeByPid(@PathVariable("pid") String pid, @RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName,
                                                @RequestParam(required = false) LocalDate dob){
         return employeeService.getEmployeeByPid(pid);
     }
