@@ -13,7 +13,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @GetMapping("api/account/{customerId}")
+    @GetMapping("api/account/customerId={customerId}")
     public List<Account> getAccountsByCustomerId(@PathVariable("customerId") Long customerId) {
         return accountService.getAccountsByCustomerId(customerId);
     }
@@ -23,7 +23,7 @@ public class AccountController {
         accountService.addNewAccount(account);
     }
 
-    @PostMapping("api/account/delete/{id}")
+    @DeleteMapping("api/account/delete/id={id}")
     public void deleteAccount(@PathVariable("id") Long id){
         accountService.deleteAccount(id);
     }
