@@ -2,6 +2,8 @@ package com.codecool.springfinancial.card;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CardController {
 
@@ -9,6 +11,11 @@ public class CardController {
 
     public CardController(CardService cardService) {
         this.cardService = cardService;
+    }
+
+    @GetMapping("api/card/accountId={accountId}")
+    public List<Card> getCardsByAccountId(@PathVariable("accountId")Long accountId){
+        return cardService.getCardsByAccountId(accountId);
     }
 
     @PostMapping("api/card/new-card")

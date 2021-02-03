@@ -3,6 +3,8 @@ package com.codecool.springfinancial.card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CardService {
 
@@ -18,4 +20,8 @@ public class CardService {
     }
 
     public void deleteCard(Long id) { cardRepository.deleteById(id);}
+
+    public List<Card> getCardsByAccountId(Long accountId) {
+        return cardRepository.findByAccountId(accountId);
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 
 @Configuration
 public class CardConfig {
@@ -36,6 +37,7 @@ public class CardConfig {
                     "Draganica",
                     true
             );
+            cardRepository.saveAll(List.of(one,two));
         };
     }
 }
