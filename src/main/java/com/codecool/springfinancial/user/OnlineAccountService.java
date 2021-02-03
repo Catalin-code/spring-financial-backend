@@ -3,6 +3,7 @@ package com.codecool.springfinancial.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,12 @@ public class OnlineAccountService {
             throw new IllegalStateException("PID taken");
         }
         onlineAccountRepository.save(onlineAccount);
+    }
+
+    @Transactional
+    public void deleteUser(String pid){
+
+        onlineAccountRepository.deleteByPid(pid);
     }
 
     public List<OnlineAccount> getAllUsers(){

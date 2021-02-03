@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface OnlineAccountRepository extends JpaRepository<OnlineAccount, Long> {
 
     Optional<OnlineAccount> findOnlineAccountByPid(String pid);
+    void deleteByPid(String pid);
 }

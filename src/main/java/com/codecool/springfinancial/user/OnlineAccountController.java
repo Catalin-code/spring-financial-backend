@@ -1,10 +1,7 @@
 package com.codecool.springfinancial.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +17,11 @@ public class OnlineAccountController {
     public void registerNewUser(@RequestBody OnlineAccount onlineAccount){
         onlineAccountService.addNewUser(onlineAccount);
     }
+    @DeleteMapping("api/user/delete/pid={pid}")
+    public void deleteUser(@PathVariable("pid") String pid){
+        onlineAccountService.deleteUser(pid);
+    }
+
 
     @GetMapping("api/user")
     public List<OnlineAccount> getAll(){
