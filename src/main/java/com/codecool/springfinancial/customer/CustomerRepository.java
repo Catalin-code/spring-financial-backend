@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    @Query("SELECT s FROM Customer s WHERE s.pid = ?1")
+//    @Query("SELECT s FROM Customer s WHERE s.pid = ?1")
     Optional<Customer> findCustomerByPid(String pid);
 }
