@@ -22,8 +22,8 @@ public class Card {
     private Long id;
     private Long accountId;
     private Long customerId;
-    private int cardNumber;
-    private String type;
+    private String cardNumber;
+    private String accountType;
     private LocalDate expirationDate;
     private int CVV;
     private String customerFirstName;
@@ -33,12 +33,12 @@ public class Card {
     public Card() {
     }
 
-    public Card(Long id, Long accountId, Long customerId, int cardNumber, String type, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
+    public Card(Long id, Long accountId, Long customerId, String cardNumber, String accountType, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
         this.id = id;
         this.accountId = accountId;
         this.customerId = customerId;
         this.cardNumber = cardNumber;
-        this.type = type;
+        this.accountType = accountType;
         this.expirationDate = expirationDate;
         this.CVV = CVV;
         this.customerFirstName = customerFirstName;
@@ -46,11 +46,11 @@ public class Card {
         this.contactless = contactless;
     }
 
-    public Card(Long accountId, Long customerId, int cardNumber, String type, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
+    public Card(Long accountId, Long customerId, String cardNumber, String accountType, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
         this.accountId = accountId;
         this.customerId = customerId;
         this.cardNumber = cardNumber;
-        this.type = type;
+        this.accountType = accountType;
         this.expirationDate = expirationDate;
         this.CVV = CVV;
         this.customerFirstName = customerFirstName;
@@ -82,20 +82,20 @@ public class Card {
         this.customerId = customerId;
     }
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public String getType() {
-        return type;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setAccountType(String type) {
+        this.accountType = type;
     }
 
     public LocalDate getExpirationDate() {
@@ -145,7 +145,7 @@ public class Card {
                 ", accountId=" + accountId +
                 ", customerId=" + customerId +
                 ", cardNumber=" + cardNumber +
-                ", type='" + type + '\'' +
+                ", type='" + accountType + '\'' +
                 ", expirationDate=" + expirationDate +
                 ", CVV=" + CVV +
                 ", customerFirstName='" + customerFirstName + '\'' +
