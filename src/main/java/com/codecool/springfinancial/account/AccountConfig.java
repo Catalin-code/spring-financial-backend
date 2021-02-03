@@ -10,7 +10,7 @@ import java.util.List;
 public class AccountConfig {
 
     @Bean
-    CommandLineRunner accountRunner(AccountRepository repository){
+    CommandLineRunner accountRunner(AccountRepository accountRepository){
         return args -> {
             Account one = new Account(
                     1l,
@@ -29,7 +29,7 @@ public class AccountConfig {
                     "RO62PORL4752952435627713",
                     0.0
             );
-            repository.saveAll(List.of(one, two));
+            accountRepository.saveAll(List.of(one, two));
         };
     }
 }

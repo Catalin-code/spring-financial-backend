@@ -11,7 +11,7 @@ import java.time.Month;
 public class CardConfig {
 
     @Bean
-    CommandLineRunner cardRunner(CardRepository repository){
+    CommandLineRunner cardRunner(CardRepository cardRepository){
         return args -> {
             Card one = new Card(
                     1l,
