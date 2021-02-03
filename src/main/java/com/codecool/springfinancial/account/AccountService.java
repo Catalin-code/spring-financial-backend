@@ -19,7 +19,13 @@ public class AccountService {
         accountRepository.save(account);
     }
 
+    public void deleteAccount(Long id){
+        accountRepository.deleteById(id);
+    }
+
     public List<Account> getAccountsByCustomerId(Long customerId){
         return accountRepository.findByCustomerId(customerId);
     }
+
+
 }
