@@ -15,7 +15,11 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-    public List<Account> getAccountsByCustomerId(Long id){
-        return accountRepository.findByCustomer(id);
+    public void addNewAccount(Account account) {
+        accountRepository.save(account);
+    }
+
+    public List<Account> getAccountsByCustomerId(Long customerId){
+        return accountRepository.findByCustomerId(customerId);
     }
 }

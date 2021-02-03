@@ -10,7 +10,7 @@ import java.util.List;
 public class AccountConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner2(AccountRepository repository){
+    CommandLineRunner accountRunner(AccountRepository repository){
         return args -> {
             Account one = new Account(
                     1l,
