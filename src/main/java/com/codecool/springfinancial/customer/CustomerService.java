@@ -30,4 +30,14 @@ public class CustomerService {
         }
         customerRepository.save(customer);
     }
+
+
+    public void deleteCustomer(Long id) {
+        boolean exists = customerRepository.existsById(id);
+        if (!exists) {
+            throw new IllegalStateException("No customer with id" + id + " found !");
+        }
+
+        customerRepository.deleteById(id);
+    }
 }

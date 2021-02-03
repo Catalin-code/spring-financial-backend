@@ -15,15 +15,15 @@ public class EmployeeConfig {
     CommandLineRunner employeeRunner(EmployeeRepository employeeRepository) {
         return args -> {
             Employee andreea = new Employee(
-                    "Dumitrescu",
                     "Andreea",
+                    "Dumitrescu",
                     LocalDate.of(1993, Month.DECEMBER, 10),
                     "6587496325415"
             );
 
             Employee lavinia = new Employee(
-                    "Mihalcea",
                     "Lavinia",
+                    "Mihalcea",
                     LocalDate.of(1994, Month.MAY, 16),
                     "4513791554966"
             );
