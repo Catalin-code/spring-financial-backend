@@ -14,8 +14,8 @@ public class CustomerConfig {
     CommandLineRunner CustomerRunner(CustomerRepository customerRepository) {
         return args -> {
             Customer ciprian = new Customer(
-                    "Draganica",
                     "Ciprian",
+                    "Draganica",
                     LocalDate.of(1993, Month.DECEMBER, 10),
                     "Strada Strazilor 4, Bloc 2, Apartament 33, Bucuresti",
                     "draganicaciprian@gmail.com",
@@ -26,8 +26,8 @@ public class CustomerConfig {
             );
 
             Customer andrei = new Customer(
-                    "Stancu",
                     "Andrei",
+                    "Stancu",
                     LocalDate.of(1998, Month.JANUARY, 2),
                     "Aleea Livezilor 11, Bloc 1, Apartament 17, Ploiesti",
                     "andreistancu@livezilor.com",
@@ -38,8 +38,8 @@ public class CustomerConfig {
             );
 
             Customer catalin = new Customer(
-                    "Despanu",
                     "Catalin",
+                    "Despanu",
                     LocalDate.of(1999, Month.JULY, 6),
                     "Bulevardul Ion Creanga 1, Ploiesti",
                     "catalin.despa@rich.com",
@@ -50,8 +50,8 @@ public class CustomerConfig {
             );
 
             Customer gheorghe = new Customer(
-                    "Ionescu",
                     "Gheorghe",
+                    "Ionescu",
                     LocalDate.of(2005, Month.JULY, 3),
                     "Calea Crângași 87, București",
                     "ionescu23@gmail.com",
@@ -62,8 +62,8 @@ public class CustomerConfig {
             );
 
             Customer maria = new Customer(
-                    "Marinescu",
                     "Maria",
+                    "Marinescu",
                     LocalDate.of(2003, Month.FEBRUARY, 2),
                     "Bulevardul Decebal 9, București",
                     "maria03@hotmail.com",
