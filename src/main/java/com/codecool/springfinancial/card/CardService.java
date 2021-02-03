@@ -16,4 +16,6 @@ public class CardService {
     public void addNewCard(Card card){
         cardRepository.save(card);
     }
+
+    public void deleteCard(Long id) { cardRepository.deleteById(id);}
 }
