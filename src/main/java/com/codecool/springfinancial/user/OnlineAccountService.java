@@ -3,7 +3,9 @@ package com.codecool.springfinancial.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -23,6 +25,23 @@ public class OnlineAccountService {
         }
         onlineAccountRepository.save(onlineAccount);
     }
+
+    @Transactional
+    public void deleteUser(String pid){
+
+        onlineAccountRepository.deleteByPid(pid);
+    }
+
+    @Transactional
+    public void updateUser(String pid, String password){
+        OnlineAccount onlineAccount = onlineAccountRepository.findOnlineAccountByPid(pid).orElseThrow(() ->
+                new IllegalStateException("Account with pid " + pid + " does not exist !"));
+        if (password != null && password.length() > 0){
+            onlineAccount.setPassword(password);
+        }
+
+    }
+
 
     public List<OnlineAccount> getAllUsers(){
         return onlineAccountRepository.findAll();
