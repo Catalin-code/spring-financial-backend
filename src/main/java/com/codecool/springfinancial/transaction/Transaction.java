@@ -1,11 +1,21 @@
 package com.codecool.springfinancial.transaction;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table
 public class Transaction {
+
+    public Transaction(Long id, String type, LocalDate date, double amount, String target, long account_id) {
+        this.id = id;
+        this.type = type;
+        this.date = date;
+        this.amount = amount;
+        this.target = target;
+        this.account_id = account_id;
+    }
 
     public Long getId() {
         return id;
@@ -23,11 +33,11 @@ public class Transaction {
         this.type = type;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -69,7 +79,7 @@ public class Transaction {
 
     private Long id;
     private String type;
-    private Date date;
+    private LocalDate date;
     private double amount;
     private String target;
     private long account_id;
