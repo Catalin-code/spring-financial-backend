@@ -3,6 +3,7 @@ package com.codecool.springfinancial.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -26,5 +27,12 @@ public class OnlineAccountController {
     @GetMapping("api/user")
     public List<OnlineAccount> getAll(){
         return onlineAccountService.getAllUsers();
+    }
+
+    @PutMapping(path = "api/user/update/pid={pid}")
+    public void updateCustomer(
+            @PathVariable("pid") String pid,
+            @RequestParam(required = false) String password) {
+        onlineAccountService.updateUser(pid, password);
     }
 }
