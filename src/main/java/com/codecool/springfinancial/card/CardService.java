@@ -6,10 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class CardService {
 
-    private final CardRepository repository;
+    private final CardRepository cardRepository;
 
     @Autowired
-    public CardService(CardRepository repository) {
-        this.repository = repository;
+    public CardService(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+    }
+
+    public void addNewCard(Card card){
+        cardRepository.save(card);
     }
 }
