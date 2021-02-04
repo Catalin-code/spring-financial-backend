@@ -1,9 +1,12 @@
 package com.codecool.springfinancial.onlineaccount;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @Table
 public class OnlineAccount {
 
@@ -32,44 +35,10 @@ public class OnlineAccount {
 
     private OnlineAccountRole onlineAccountRole = OnlineAccountRole.USER;
 
-    public OnlineAccount() {
-    }
-
-    public OnlineAccount(Long id, String pid, String password, OnlineAccountRole onlineAccountRole) {
-        this.id = id;
-        this.pid = pid;
-        this.password = password;
-        this.onlineAccountRole = onlineAccountRole;
-    }
-
     public OnlineAccount(String pid, String password, OnlineAccountRole onlineAccountRole) {
         this.pid = pid;
         this.password = password;
         this.onlineAccountRole = onlineAccountRole;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override
