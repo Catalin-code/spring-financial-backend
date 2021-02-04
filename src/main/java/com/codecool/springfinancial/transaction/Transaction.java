@@ -3,6 +3,7 @@ package com.codecool.springfinancial.transaction;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -86,4 +87,28 @@ public class Transaction {
 
     public Transaction(){}
 
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", date=" + date +
+                ", amount=" + amount +
+                ", target='" + target + '\'' +
+                ", account_id=" + account_id +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transaction)) return false;
+        Transaction that = (Transaction) o;
+        return Double.compare(that.amount, amount) == 0 && account_id == that.account_id && id.equals(that.id) && type.equals(that.type) && date.equals(that.date) && target.equals(that.target);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type, date, amount, target, account_id);
+    }
 }

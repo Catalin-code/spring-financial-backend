@@ -2,6 +2,7 @@ package com.codecool.springfinancial.employee;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -91,5 +92,18 @@ public class Employee {
                 ", dob=" + dob +
                 ", pid='" + pid + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return id.equals(employee.id) && firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && dob.equals(employee.dob) && pid.equals(employee.pid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, dob, pid);
     }
 }

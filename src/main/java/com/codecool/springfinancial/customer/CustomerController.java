@@ -17,16 +17,12 @@ public class CustomerController {
     }
 
     @GetMapping(path = "api/customer/id={id}")
-    public Optional<Customer> getCustomerById(@PathVariable("id") Long id, @RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName, @RequestParam(required = false) LocalDate dob,
-                                              @RequestParam(required = false) String address, @RequestParam(required = false) String email, @RequestParam(required = false)LocalDate idIssued,
-                                              @RequestParam(required = false) LocalDate idExpiry, @RequestParam(required = false) String gender, @RequestParam(required = false) String pid) {
+    public Optional<Customer> getCustomerById(@PathVariable("id") Long id) {
         return customerService.getCustomerById(id);
     }
 
     @GetMapping(path = "api/customer/pid={pid}")
-    public Optional<Customer> getCustomerByPid(@PathVariable("pid") String pid, @RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName, @RequestParam(required = false) LocalDate dob,
-                                              @RequestParam(required = false) String address, @RequestParam(required = false) String email, @RequestParam(required = false)LocalDate idIssued,
-                                              @RequestParam(required = false) LocalDate idExpiry, @RequestParam(required = false) String gender, @RequestParam(required = false) Long id) {
+    public Optional<Customer> getCustomerByPid(@PathVariable("pid") String pid) {
         return customerService.getCustomerByPid(pid);
     }
 

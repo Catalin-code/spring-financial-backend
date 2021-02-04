@@ -5,6 +5,7 @@ import org.apache.tomcat.jni.Local;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -161,5 +162,18 @@ public class Customer {
                 ", gender='" + gender + '\'' +
                 ", pid='" + pid + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+        Customer customer = (Customer) o;
+        return id.equals(customer.id) && firstName.equals(customer.firstName) && lastName.equals(customer.lastName) && dob.equals(customer.dob) && age.equals(customer.age) && address.equals(customer.address) && email.equals(customer.email) && idIssued.equals(customer.idIssued) && idExpiry.equals(customer.idExpiry) && gender.equals(customer.gender) && pid.equals(customer.pid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, dob, age, address, email, idIssued, idExpiry, gender, pid);
     }
 }

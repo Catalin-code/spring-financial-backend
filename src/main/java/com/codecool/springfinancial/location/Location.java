@@ -1,6 +1,7 @@
 package com.codecool.springfinancial.location;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -66,5 +67,18 @@ public class Location {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Location)) return false;
+        Location location = (Location) o;
+        return id.equals(location.id) && name.equals(location.name) && address.equals(location.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address);
     }
 }

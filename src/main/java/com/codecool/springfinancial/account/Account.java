@@ -1,6 +1,7 @@
 package com.codecool.springfinancial.account;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -115,5 +116,18 @@ public class Account {
                 ", account_number='" + account_number + '\'' +
                 ", interest=" + interest +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return Double.compare(account.amount, amount) == 0 && Double.compare(account.interest, interest) == 0 && id.equals(account.id) && customerId.equals(account.customerId) && type.equals(account.type) && currency.equals(account.currency) && account_number.equals(account.account_number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, customerId, type, currency, amount, account_number, interest);
     }
 }

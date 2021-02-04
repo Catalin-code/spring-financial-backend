@@ -2,6 +2,7 @@ package com.codecool.springfinancial.card;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -152,5 +153,18 @@ public class Card {
                 ", customerLastName='" + customerLastName + '\'' +
                 ", contactless=" + contactless +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return CVV == card.CVV && contactless == card.contactless && id.equals(card.id) && accountId.equals(card.accountId) && customerId.equals(card.customerId) && cardNumber.equals(card.cardNumber) && accountType.equals(card.accountType) && expirationDate.equals(card.expirationDate) && customerFirstName.equals(card.customerFirstName) && customerLastName.equals(card.customerLastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, accountId, customerId, cardNumber, accountType, expirationDate, CVV, customerFirstName, customerLastName, contactless);
     }
 }

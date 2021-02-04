@@ -1,6 +1,7 @@
 package com.codecool.springfinancial.user;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -71,4 +72,26 @@ public class OnlineAccount {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "OnlineAccount{" +
+                "id=" + id +
+                ", pid='" + pid + '\'' +
+                ", password='" + password + '\'' +
+                ", onlineAccountRole=" + onlineAccountRole +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OnlineAccount)) return false;
+        OnlineAccount that = (OnlineAccount) o;
+        return id.equals(that.id) && pid.equals(that.pid) && password.equals(that.password) && onlineAccountRole == that.onlineAccountRole;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, pid, password, onlineAccountRole);
+    }
 }
