@@ -16,7 +16,6 @@ public class OnlineAccountService {
         this.onlineAccountRepository = onlineAccountRepository;
     }
 
-
     public void addNewOnlineAccount(OnlineAccount onlineAccount) {
         Optional<OnlineAccount> onlineAccountByPid = onlineAccountRepository.findOnlineAccountByPid(onlineAccount.getPid());
         if (onlineAccountByPid.isPresent()){
@@ -27,12 +26,11 @@ public class OnlineAccountService {
 
     @Transactional
     public void deleteOnlineAccount(String pid){
-
         onlineAccountRepository.deleteByPid(pid);
     }
 
     @Transactional
-    public void updateUser(String pid, String password){
+    public void changePassword(String pid, String password){
         OnlineAccount onlineAccount = onlineAccountRepository.findOnlineAccountByPid(pid).orElseThrow(() ->
                 new IllegalStateException("Account with pid " + pid + " does not exist !"));
         if (password != null && password.length() > 0){
@@ -41,8 +39,7 @@ public class OnlineAccountService {
 
     }
 
-
-    public List<OnlineAccount> getAllUsers(){
+    public List<OnlineAccount> getAllOnlineAccounts(){
         return onlineAccountRepository.findAll();
     }
 }

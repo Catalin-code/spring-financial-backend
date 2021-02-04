@@ -1,6 +1,9 @@
 package com.codecool.springfinancial.onlineaccount;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -16,6 +19,7 @@ public class OnlineAccount {
             sequenceName = "user_sequence",
             allocationSize = 1
     )
+
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "user_sequence"
@@ -24,14 +28,6 @@ public class OnlineAccount {
     private Long id;
     private String pid;
     private String password;
-
-    public OnlineAccountRole getOnlineAccountRole() {
-        return onlineAccountRole;
-    }
-
-    public void setOnlineAccountRole(OnlineAccountRole onlineAccountRole) {
-        this.onlineAccountRole = onlineAccountRole;
-    }
 
     private OnlineAccountRole onlineAccountRole = OnlineAccountRole.USER;
 

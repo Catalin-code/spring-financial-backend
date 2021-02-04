@@ -9,7 +9,7 @@ import java.util.List;
 @Configuration
 public class OnlineAccountConfig {
     @Bean
-    CommandLineRunner userRunner(OnlineAccountRepository repository){
+    CommandLineRunner onlineAccountRunner(OnlineAccountRepository repository){
         return args -> {
             OnlineAccount admin = new OnlineAccount(
                     "admin",

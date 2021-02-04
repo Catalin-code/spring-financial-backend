@@ -19,19 +19,19 @@ public class OnlineAccountController {
         onlineAccountService.addNewOnlineAccount(onlineAccount);
     }
     @DeleteMapping("delete/pid={pid}")
-    public void deleteUser(@PathVariable("pid") String pid){
+    public void deleteOnlineAccount(@PathVariable("pid") String pid){
         onlineAccountService.deleteOnlineAccount(pid);
     }
 
     @GetMapping
-    public List<OnlineAccount> getAll(){
-        return onlineAccountService.getAllUsers();
+    public List<OnlineAccount> getAllOnlineAccount(){
+        return onlineAccountService.getAllOnlineAccounts();
     }
 
-    @PutMapping(path = "update/pid={pid}")
-    public void updateCustomer(
+    @PutMapping(path = "change-password/pid={pid}")
+    public void changePassword(
             @PathVariable("pid") String pid,
             @RequestParam(required = false) String password) {
-        onlineAccountService.updateUser(pid, password);
+        onlineAccountService.changePassword(pid, password);
     }
 }
