@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "api/online-account")
 public class OnlineAccountController {
     private final OnlineAccountService onlineAccountService;
     @Autowired
@@ -13,22 +14,21 @@ public class OnlineAccountController {
         this.onlineAccountService = onlineAccountService;
     }
 
-    @PostMapping("api/user/new-user")
-    public void registerNewUser(@RequestBody OnlineAccount onlineAccount){
-        onlineAccountService.addNewUser(onlineAccount);
+    @PostMapping("new-online-account")
+    public void registerNewOnlineAccount(@RequestBody OnlineAccount onlineAccount){
+        onlineAccountService.addNewOnlineAccount(onlineAccount);
     }
-    @DeleteMapping("api/user/delete/pid={pid}")
+    @DeleteMapping("delete/pid={pid}")
     public void deleteUser(@PathVariable("pid") String pid){
-        onlineAccountService.deleteUser(pid);
+        onlineAccountService.deleteOnlineAccount(pid);
     }
 
-
-    @GetMapping("api/user")
+    @GetMapping
     public List<OnlineAccount> getAll(){
         return onlineAccountService.getAllUsers();
     }
 
-    @PutMapping(path = "api/user/update/pid={pid}")
+    @PutMapping(path = "update/pid={pid}")
     public void updateCustomer(
             @PathVariable("pid") String pid,
             @RequestParam(required = false) String password) {

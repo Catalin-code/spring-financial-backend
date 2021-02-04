@@ -17,7 +17,7 @@ public class OnlineAccountService {
     }
 
 
-    public void addNewUser(OnlineAccount onlineAccount) {
+    public void addNewOnlineAccount(OnlineAccount onlineAccount) {
         Optional<OnlineAccount> onlineAccountByPid = onlineAccountRepository.findOnlineAccountByPid(onlineAccount.getPid());
         if (onlineAccountByPid.isPresent()){
             throw new IllegalStateException("PID taken");
@@ -26,7 +26,7 @@ public class OnlineAccountService {
     }
 
     @Transactional
-    public void deleteUser(String pid){
+    public void deleteOnlineAccount(String pid){
 
         onlineAccountRepository.deleteByPid(pid);
     }
