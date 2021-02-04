@@ -1,4 +1,4 @@
-package com.codecool.springfinancial.user;
+package com.codecool.springfinancial.onlineaccount;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

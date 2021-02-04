@@ -1,4 +1,4 @@
-package com.codecool.springfinancial.user;
+package com.codecool.springfinancial.onlineaccount;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

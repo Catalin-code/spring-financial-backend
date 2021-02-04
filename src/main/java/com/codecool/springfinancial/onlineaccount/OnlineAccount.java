@@ -1,4 +1,4 @@
-package com.codecool.springfinancial.user;
+package com.codecool.springfinancial.onlineaccount;
 
 import javax.persistence.*;
 import java.util.Objects;
