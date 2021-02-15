@@ -1,15 +1,12 @@
 package com.codecool.springfinancial.onlineaccount;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor @AllArgsConstructor
 @Table
 public class OnlineAccount {
 
@@ -35,28 +32,5 @@ public class OnlineAccount {
         this.pid = pid;
         this.password = password;
         this.onlineAccountRole = onlineAccountRole;
-    }
-
-    @Override
-    public String toString() {
-        return "OnlineAccount{" +
-                "id=" + id +
-                ", pid='" + pid + '\'' +
-                ", password='" + password + '\'' +
-                ", onlineAccountRole=" + onlineAccountRole +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof OnlineAccount)) return false;
-        OnlineAccount that = (OnlineAccount) o;
-        return id.equals(that.id) && pid.equals(that.pid) && password.equals(that.password) && onlineAccountRole == that.onlineAccountRole;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, pid, password, onlineAccountRole);
     }
 }
