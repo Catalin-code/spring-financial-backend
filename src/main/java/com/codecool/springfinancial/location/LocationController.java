@@ -15,10 +15,13 @@ public class LocationController {
         this.locationService = locationService;
     }
 
+    @CrossOrigin
     @GetMapping(path = "api/location")
     public List<Location> getLocations() {
         return locationService.getLocations();
     }
+
+    @CrossOrigin
     @GetMapping("/api/location/{id}")
     public Optional<Location> getLocationById(@PathVariable("id") Long id, @RequestParam(required = false) String name, @RequestParam(required = false) String address) {
         return locationService.getLocationById(id);

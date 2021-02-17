@@ -13,6 +13,7 @@ public class CardController {
         this.cardService = cardService;
     }
 
+    @CrossOrigin
     @GetMapping("api/card/accountId={accountId}")
     public List<Card> getCardsByAccountId(@PathVariable("accountId")Long accountId){
         return cardService.getCardsByAccountId(accountId);

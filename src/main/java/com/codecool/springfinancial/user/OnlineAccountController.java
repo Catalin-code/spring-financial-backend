@@ -24,6 +24,7 @@ public class OnlineAccountController {
     }
 
 
+    @CrossOrigin
     @GetMapping("api/user")
     public List<OnlineAccount> getAll(){
         return onlineAccountService.getAllUsers();

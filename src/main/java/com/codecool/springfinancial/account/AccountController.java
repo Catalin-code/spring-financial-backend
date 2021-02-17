@@ -13,6 +13,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
+    @CrossOrigin
     @GetMapping("api/account/customerId={customerId}")
     public List<Account> getAccountsByCustomerId(@PathVariable("customerId")Long customerId) {
         return accountService.getAccountsByCustomerId(customerId);

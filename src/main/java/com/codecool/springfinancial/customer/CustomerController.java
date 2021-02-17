@@ -16,11 +16,13 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @CrossOrigin
     @GetMapping(path = "api/customer/id={id}")
     public Optional<Customer> getCustomerById(@PathVariable("id") Long id) {
         return customerService.getCustomerById(id);
     }
 
+    @CrossOrigin
     @GetMapping(path = "api/customer/pid={pid}")
     public Optional<Customer> getCustomerByPid(@PathVariable("pid") String pid) {
         return customerService.getCustomerByPid(pid);

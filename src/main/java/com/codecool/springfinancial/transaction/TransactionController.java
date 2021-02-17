@@ -14,6 +14,7 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
+    @CrossOrigin
     @GetMapping("api/transaction")
     public List<Transaction> getAll(){
         return transactionService.getAllTransactions();
