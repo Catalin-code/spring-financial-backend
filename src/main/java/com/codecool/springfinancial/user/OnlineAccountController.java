@@ -14,20 +14,20 @@ public class OnlineAccountController {
         this.onlineAccountService = onlineAccountService;
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("api/user/new-user")
     public void registerNewUser(@RequestBody OnlineAccount onlineAccount){
         onlineAccountService.addNewUser(onlineAccount);
     }
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("api/user/delete/pid={pid}")
     public void deleteUser(@PathVariable("pid") String pid){
         onlineAccountService.deleteUser(pid);
     }
 
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("api/user")
     public List<OnlineAccount> getAll(){
         return onlineAccountService.getAllUsers();
