@@ -13,17 +13,19 @@ public class CardController {
         this.cardService = cardService;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("api/card/accountId={accountId}")
     public List<Card> getCardsByAccountId(@PathVariable("accountId")Long accountId){
         return cardService.getCardsByAccountId(accountId);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("api/card/new-card")
     public void addNewCard(@RequestBody Card card){
         cardService.addNewCard(card);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @DeleteMapping("api/card/delete/id={id}")
     public void deleteCard(@PathVariable("id")Long id){
         cardService.deleteCard(id);

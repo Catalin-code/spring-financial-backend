@@ -13,17 +13,19 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("api/account/customerId={customerId}")
     public List<Account> getAccountsByCustomerId(@PathVariable("customerId")Long customerId) {
         return accountService.getAccountsByCustomerId(customerId);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("api/account/new-account")
     public void addNewAccount(@RequestBody Account account){
         accountService.addNewAccount(account);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @DeleteMapping("api/account/delete/id={id}")
     public void deleteAccount(@PathVariable("id") Long id){
         accountService.deleteAccount(id);

@@ -15,7 +15,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "api/employee/pid={pid}")
     public Optional<Employee> getEmployeeByPid(@PathVariable("pid") String pid){
         return employeeService.getEmployeeByPid(pid);

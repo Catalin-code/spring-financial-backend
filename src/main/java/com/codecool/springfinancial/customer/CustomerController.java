@@ -16,28 +16,31 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "api/customer/id={id}")
     public Optional<Customer> getCustomerById(@PathVariable("id") Long id) {
         return customerService.getCustomerById(id);
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(path = "api/customer/pid={pid}")
     public Optional<Customer> getCustomerByPid(@PathVariable("pid") String pid) {
         return customerService.getCustomerByPid(pid);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(path = "api/customer/new-customer")
     public void addNewCustomer (@RequestBody Customer customer){
         customerService.addNewCustomer(customer);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @DeleteMapping(path = "api/customer/delete/id={id}")
     public void deleteCustomer(@PathVariable("id") Long id) {
         customerService.deleteCustomer(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PutMapping(path = "api/customer/update/pid={pid}")
     public void updateCustomer(
             @PathVariable("pid") String pid,
