@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface OnlineAccountRepository extends JpaRepository<OnlineAccount, Long> {
-
-    Optional<OnlineAccount> findOnlineAccountByPid(String pid);
-    void deleteByPid(String pid);
+public interface RoleRepository extends JpaRepository<Role, Long> {
+    Optional<Role> findByName(ERole name);
 }
