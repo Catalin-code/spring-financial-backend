@@ -7,17 +7,17 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class OnlineAccountConfig {
+public class RoleConfig {
     @Bean
-    CommandLineRunner userRunner(OnlineAccountRepository repository){
+    CommandLineRunner roleRunner(RoleRepository roleRepository) {
         return args -> {
-            OnlineAccount admin = new OnlineAccount(
-                    "admin",
-                    "admin",
-                    OnlineAccountRole.ADMIN
-
+            Role admin = new Role(
+                    ERole.ROLE_ADMIN
             );
-            repository.saveAll(List.of(admin));
+            Role user = new Role(
+                    ERole.ROLE_USER
+            );
+            roleRepository.saveAll(List.of(admin, user));
         };
     }
 }
