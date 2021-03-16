@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/test")
 @RestController
 public class AccountController {
 
@@ -13,20 +15,17 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("api/account/customerId={customerId}")
+    @GetMapping("/account/customerId={customerId}")
     public List<Account> getAccountsByCustomerId(@PathVariable("customerId")Long customerId) {
         return accountService.getAccountsByCustomerId(customerId);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping("api/account/new-account")
+    @PostMapping("/account/new-account")
     public void addNewAccount(@RequestBody Account account){
         accountService.addNewAccount(account);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @DeleteMapping("api/account/delete/id={id}")
+    @DeleteMapping("/account/delete/id={id}")
     public void deleteAccount(@PathVariable("id") Long id){
         accountService.deleteAccount(id);
     }
