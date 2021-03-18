@@ -23,8 +23,8 @@ public class AccountService {
         accountRepository.deleteById(id);
     }
 
-    public List<Account> getAccountsByCustomerId(Long customerId){
-        return accountRepository.findByCustomerId(customerId);
+    public List<Account> getAccountsByCustomerPid(String customerPid){
+        return accountRepository.findByCustomerPid(customerPid);
     }
 
 

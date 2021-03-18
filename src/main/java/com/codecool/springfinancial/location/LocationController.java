@@ -11,7 +11,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/test")
 public class LocationController {
-
     private final LocationService locationService;
 
     @Autowired
@@ -24,13 +23,3 @@ public class LocationController {
         return locationService.getLocations();
     }
 }
-//    public List<Location> getLocations() {
-//        return locationService.getLocations();
-//    }
-
-//    @CrossOrigin(origins = "http://localhost:8081")
-//    @GetMapping("/api/location/{id}")
-//    public Optional<Location> getLocationById(@PathVariable("id") Long id, @RequestParam(required = false) String name, @RequestParam(required = false) String address) {
-//        return locationService.getLocationById(id);
-//    }
-
