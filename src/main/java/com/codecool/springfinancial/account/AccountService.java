@@ -27,5 +27,9 @@ public class AccountService {
         return accountRepository.findByCustomerPid(customerPid);
     }
 
+    public Account getAccountByAccountNumber(String accountNumber) {
+        return accountRepository.findByAccountNumber(accountNumber);
+    }
+
 
 }

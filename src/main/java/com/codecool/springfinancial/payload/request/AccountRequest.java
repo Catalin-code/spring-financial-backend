@@ -52,8 +52,8 @@ public class AccountRequest {
         return accountNumber;
     }
 
-    public void setAccount_number(String account_number) {
-        this.accountNumber = account_number;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public Double getInterest() {

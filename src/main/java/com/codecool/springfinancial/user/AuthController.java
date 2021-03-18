@@ -1,5 +1,6 @@
 package com.codecool.springfinancial.user;
 
+import com.codecool.springfinancial.card.Card;
 import com.codecool.springfinancial.payload.request.LoginRequest;
 import com.codecool.springfinancial.payload.request.SignupRequest;
 import com.codecool.springfinancial.payload.response.JwtResponse;
@@ -106,5 +107,11 @@ public class AuthController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("Registration Successful"));
+    }
+
+    @PostMapping("/user/change/username={username}/firstName={firstName}")
+    public void updateUser(@RequestBody @PathVariable("username") String userName, @PathVariable("firstName") String firstName) {
+        userRepository.setUsername(userName, firstName);
+
     }
 }

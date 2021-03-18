@@ -1,6 +1,7 @@
 package com.codecool.springfinancial.account;
 
 import com.codecool.springfinancial.payload.request.AccountRequest;
+import com.codecool.springfinancial.payload.request.TransactionRequest;
 import com.codecool.springfinancial.payload.response.MessageResponse;
 import com.codecool.springfinancial.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,21 @@ public class AccountController {
 
         return ResponseEntity.ok(new MessageResponse("Account created successfully"));
     }
+    @PostMapping("/account/transaction")
+    public ResponseEntity<?> makeTransaction (@Valid @RequestBody TransactionRequest transactionRequest) {
+        if (!accountRepository.existsByAccountNumber(transactionRequest.getTargetAccount())) {
+            return ResponseEntity.badRequest().body(new MessageResponse("Account does not exist !"));
+        }
+
+        double amount1 = accountRepository.findByAccountNumber(transactionRequest.getAccountNumber()).getAmount() - transactionRequest.getFunds();
+        double amount2 = accountRepository.findByAccountNumber(transactionRequest.getTargetAccount()).getAmount() + transactionRequest.getFunds();
+
+        accountRepository.transaction(transactionRequest.getAccountNumber(), amount1);
+        accountRepository.transaction(transactionRequest.getTargetAccount(), amount2);
+
+        return ResponseEntity.ok(new MessageResponse("Transaction successful"));
+    }
+
 
     @DeleteMapping("/account/delete/id={id}")
     public void deleteAccount(@PathVariable("id") Long id){

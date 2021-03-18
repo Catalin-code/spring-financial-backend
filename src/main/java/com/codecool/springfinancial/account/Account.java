@@ -93,8 +93,8 @@ public class Account {
         return accountNumber;
     }
 
-    public void setAccountNumber(String account_number) {
-        this.accountNumber = account_number;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getInterest() {
@@ -113,7 +113,7 @@ public class Account {
                 ", type='" + type + '\'' +
                 ", currency='" + currency + '\'' +
                 ", amount=" + amount +
-                ", account_number='" + accountNumber + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
                 ", interest=" + interest +
                 '}';
     }
