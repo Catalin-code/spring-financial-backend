@@ -20,32 +20,32 @@ public class Account {
     )
 
     private Long id;
-    private Long customerId;
+    private String customerPid;
     private String type;
     private String currency;
     private double amount;
-    private String account_number;
+    private String accountNumber;
     private double interest;
 
     public Account() {
     }
 
-    public Account(Long id, Long customerId, String type, String currency, double amount, String account_number, double interest) {
+    public Account(Long id, String customerPid, String type, String currency, double amount, String accountNumber, double interest) {
         this.id = id;
-        this.customerId = customerId;
+        this.customerPid = customerPid;
         this.type = type;
         this.currency = currency;
         this.amount = amount;
-        this.account_number = account_number;
+        this.accountNumber = accountNumber;
         this.interest = interest;
     }
 
-    public Account(Long customerId, String type, String currency, double amount, String account_number, double interest) {
-        this.customerId = customerId;
+    public Account(String customerPid, String type, String currency, double amount, String accountNumber, double interest) {
+        this.customerPid = customerPid;
         this.type = type;
         this.currency = currency;
         this.amount = amount;
-        this.account_number = account_number;
+        this.accountNumber = accountNumber;
         this.interest = interest;
     }
 
@@ -57,12 +57,12 @@ public class Account {
         this.id = id;
     }
 
-    public Long getCustomerId() {
-        return customerId;
+    public String getCustomerPid() {
+        return customerPid;
     }
 
-    public void setCustomerId(Long customer_id) {
-        this.customerId = customer_id;
+    public void setCustomerPid(String customer_Pid) {
+        this.customerPid = customer_Pid;
     }
 
     public String getType() {
@@ -89,12 +89,12 @@ public class Account {
         this.amount = amount;
     }
 
-    public String getAccount_number() {
-        return account_number;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAccount_number(String account_number) {
-        this.account_number = account_number;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getInterest() {
@@ -109,11 +109,11 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", customer_id=" + customerId +
+                ", customer_pid=" + customerPid +
                 ", type='" + type + '\'' +
                 ", currency='" + currency + '\'' +
                 ", amount=" + amount +
-                ", account_number='" + account_number + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
                 ", interest=" + interest +
                 '}';
     }
@@ -123,11 +123,11 @@ public class Account {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
         Account account = (Account) o;
-        return Double.compare(account.amount, amount) == 0 && Double.compare(account.interest, interest) == 0 && id.equals(account.id) && customerId.equals(account.customerId) && type.equals(account.type) && currency.equals(account.currency) && account_number.equals(account.account_number);
+        return Double.compare(account.amount, amount) == 0 && Double.compare(account.interest, interest) == 0 && id.equals(account.id) && customerPid.equals(account.customerPid) && type.equals(account.type) && currency.equals(account.currency) && accountNumber.equals(account.accountNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, customerId, type, currency, amount, account_number, interest);
+        return Objects.hash(id, customerPid, type, currency, amount, accountNumber, interest);
     }
 }

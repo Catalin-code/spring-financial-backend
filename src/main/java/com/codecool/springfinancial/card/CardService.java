@@ -24,4 +24,8 @@ public class CardService {
     public List<Card> getCardsByAccountId(Long accountId) {
         return cardRepository.findByAccountId(accountId);
     }
+
+    public List<Card> getCardsByAccountNumber(String accountNumber) {
+        return cardRepository.findByAccountNumber(accountNumber);
+    }
 }
