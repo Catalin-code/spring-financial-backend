@@ -23,6 +23,7 @@ public class Card {
     private Long id;
     private Long accountId;
     private Long customerId;
+    private String accountNumber;
     private String cardNumber;
     private String accountType;
     private LocalDate expirationDate;
@@ -34,10 +35,8 @@ public class Card {
     public Card() {
     }
 
-    public Card(Long id, Long accountId, Long customerId, String cardNumber, String accountType, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
-        this.id = id;
-        this.accountId = accountId;
-        this.customerId = customerId;
+    public Card(String accountNumber, String cardNumber, String accountType, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
+        this.accountNumber = accountNumber;
         this.cardNumber = cardNumber;
         this.accountType = accountType;
         this.expirationDate = expirationDate;
@@ -47,9 +46,11 @@ public class Card {
         this.contactless = contactless;
     }
 
-    public Card(Long accountId, Long customerId, String cardNumber, String accountType, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
+    public Card(Long id, Long accountId, Long customerId, String accountNumber, String cardNumber, String accountType, LocalDate expirationDate, int CVV, String customerFirstName, String customerLastName, boolean contactless) {
+        this.id = id;
         this.accountId = accountId;
         this.customerId = customerId;
+        this.accountNumber = accountNumber;
         this.cardNumber = cardNumber;
         this.accountType = accountType;
         this.expirationDate = expirationDate;
@@ -83,6 +84,14 @@ public class Card {
         this.customerId = customerId;
     }
 
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public String getCardNumber() {
         return cardNumber;
     }
@@ -95,8 +104,8 @@ public class Card {
         return accountType;
     }
 
-    public void setAccountType(String type) {
-        this.accountType = type;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public LocalDate getExpirationDate() {
@@ -145,8 +154,9 @@ public class Card {
                 "id=" + id +
                 ", accountId=" + accountId +
                 ", customerId=" + customerId +
-                ", cardNumber=" + cardNumber +
-                ", type='" + accountType + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", accountType='" + accountType + '\'' +
                 ", expirationDate=" + expirationDate +
                 ", CVV=" + CVV +
                 ", customerFirstName='" + customerFirstName + '\'' +
@@ -160,11 +170,13 @@ public class Card {
         if (this == o) return true;
         if (!(o instanceof Card)) return false;
         Card card = (Card) o;
-        return CVV == card.CVV && contactless == card.contactless && id.equals(card.id) && accountId.equals(card.accountId) && customerId.equals(card.customerId) && cardNumber.equals(card.cardNumber) && accountType.equals(card.accountType) && expirationDate.equals(card.expirationDate) && customerFirstName.equals(card.customerFirstName) && customerLastName.equals(card.customerLastName);
+        return CVV == card.CVV && contactless == card.contactless && Objects.equals(id, card.id) && Objects.equals(accountId, card.accountId) && Objects.equals(customerId, card.customerId) && Objects.equals(accountNumber, card.accountNumber) && Objects.equals(cardNumber, card.cardNumber) && Objects.equals(accountType, card.accountType) && Objects.equals(expirationDate, card.expirationDate) && Objects.equals(customerFirstName, card.customerFirstName) && Objects.equals(customerLastName, card.customerLastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, accountId, customerId, cardNumber, accountType, expirationDate, CVV, customerFirstName, customerLastName, contactless);
+        return Objects.hash(id, accountId, customerId, accountNumber, cardNumber, accountType, expirationDate, CVV, customerFirstName, customerLastName, contactless);
     }
 }
+
+
