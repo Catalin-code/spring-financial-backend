@@ -28,7 +28,8 @@ public class RatingService {
         return averageRating;
     }
 
-    public void saveNewRating(Rating rating){
-        ratingRepository.save(rating);
+    public void saveNewRating(int rating){
+        Rating newRating = new Rating(rating);
+        ratingRepository.save(newRating);
     }
 }

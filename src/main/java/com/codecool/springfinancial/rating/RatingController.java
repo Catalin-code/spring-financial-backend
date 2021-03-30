@@ -19,8 +19,10 @@ public class RatingController {
         return ratingService.getAverageRating();
     }
 
-    @PostMapping("/new-rating")
-    public void saveNewRating(Rating rating){
+    @PostMapping(path = "/new-rating")
+    public void saveNewRating(@RequestBody int rating){
+        System.out.println("Am ajuns aici");
+        System.out.println(rating);
         ratingService.saveNewRating(rating);
     }
 }
