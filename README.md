@@ -51,3 +51,6 @@ springFinancial.app.jwtSecret= financialSecretKey
 springFinancial.app.jwtExpirationMs= 86400000 
 ```
 5. Run project.
+
+[Click here for the frontend repository](https://github.com/Catalin-code/spring-financial-frontend)
+
